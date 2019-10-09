@@ -17,13 +17,13 @@ class Contactform2 extends React.Component{
             <label htmlFor="keyskills">Select your skills</label>
             <div id="toppings"> 
                 {this.state.skillsarr.map((value,index) => {
-                    return  <div class="checkbox">
+                    return  <div className="checkbox">
                     <label><input type="checkbox" keys={index} onChange={this.props.handleCheck} name={value} value={value} />{value}</label>
                     </div>
                 })}
 
             </div>
-            {this.props.requirederror &&  <div class='error-message'>Please select atleast one skill</div>}
+            {this.props.requirederror &&  <div className='error-message'>Please select atleast one skill</div>}
           </div>
         )
       }

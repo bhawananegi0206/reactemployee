@@ -9,7 +9,6 @@ import 'bootstrap/dist/css/bootstrap.css';
 class App extends React.Component{
   constructor(props) {
     super(props)
-
     this.state = {
       currentStep: 1,
       email: '',
@@ -89,12 +88,13 @@ class App extends React.Component{
   render(){
     
   return (
-    <div class="maincontainer">
+    <div id="maincontainer">
     <h1>Employee Details Form</h1>
-    {this.state.currentStep <=3 && <div class="steps">Step {this.state.currentStep} </div> }
+    {this.state.currentStep <=3 && <div className='steps'>Step {this.state.currentStep} </div> }
       
     <form onSubmit={this.handleOnSubmit}>
     
+
       <Contactform1 
         currentStep={this.state.currentStep} 
         handleChange={this.handleOnChange}
@@ -125,7 +125,7 @@ class App extends React.Component{
     
     
     {this.state.currentStep <=2  &&
-    <div class="btncontainer">
+    <div className="btncontainer">
     <button 
         className="btn btn-primary " 
         type="button" onClick={this.nextstep}>
@@ -133,7 +133,7 @@ class App extends React.Component{
       </button> </div>}
 
       {this.state.currentStep === 3  &&
-      <div class="btncontainer"><button class="btn btn-primary onsubmit" type="submit" onClick={this.handleOnSubmit}>Submit</button> </div>}
+      <div className="btncontainer"><button className="btn btn-primary onsubmit" type="submit" onClick={this.handleOnSubmit}>Submit</button> </div>}
       }
       
    

@@ -8,7 +8,7 @@ class Contactform3 extends React.Component{
         // The markup for the Step 1 UI
         return(
           <div className="form-group">
-              <label htmlFor="firstname">First Name</label><span class="required">*</span>
+              <label htmlFor="firstname">First Name</label><span className="required">*</span>
             <input
               className="form-control"
               id="firstname"
@@ -18,7 +18,7 @@ class Contactform3 extends React.Component{
               value={this.props.firstname} 
               onChange={this.props.handleChange} 
             />
-            <label htmlFor="lastname">Last Name</label><span class="required">*</span>
+            <label htmlFor="lastname">Last Name</label><span className="required">*</span>
             <input
               className="form-control"
               id="lastname"
@@ -28,7 +28,7 @@ class Contactform3 extends React.Component{
               value={this.props.lastname}
               onChange={this.props.handleChange}
             />
-            <label htmlFor="email">Email address</label><span class="required">*</span>
+            <label htmlFor="email">Email address</label><span className="required">*</span>
             <input
               className="form-control"
               id="email"
@@ -38,8 +38,8 @@ class Contactform3 extends React.Component{
               value={this.props.email}
               onChange={this.props.handleChange}
             />
-            {this.props.requirederror &&  <div class='error-message'>Please fill mandatory fields</div>}
-            {this.props.invalidemail &&  <div class='error-message'>Please enter correct email address</div>}
+            {this.props.requirederror &&  <div className='error-message'>Please fill mandatory fields</div>}
+            {this.props.invalidemail &&  <div className='error-message'>Please enter correct email address</div>}
           </div>
         )
       }

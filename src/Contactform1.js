@@ -11,7 +11,7 @@ class Contactform1 extends React.Component {
       return(
         <div className="form-group">
           <label htmlFor="city">Select City</label>
-          <select name="city" class="form-control" value={this.props.city} onChange={this.props.handleChange}>
+          <select name="city" className="form-control" value={this.props.city} onChange={this.props.handleChange}>
                 <option value="Berlin">Berlin</option>
                 <option value="Wolfsburg">Wolfsburg</option>
                 <option value="Frankfurt">Frankfurt</option>
