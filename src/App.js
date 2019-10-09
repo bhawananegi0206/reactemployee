@@ -16,7 +16,9 @@ class App extends React.Component{
       firstname: '',
       lastname: '', 
       city :'berlin',
-      skills:[]
+      skills:[],
+      requirederror:false,
+      invalidemail:false
     }
     this.handleOnChange = this.handleOnChange.bind(this);
     this.nextstep = this.nextstep.bind(this);
@@ -47,17 +49,40 @@ class App extends React.Component{
 
   handleOnSubmit = (event) => {
     event.preventDefault();
+    if(this.state.firstname ==="" || this.state.lastname ==="" || this.state.email ===""){
+      this.setState({
+        requirederror:true
+      })
+    }
+    else if(!this.state.email.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i)){
+     this.setState({
+      invalidemail:true,
+      requirederror:false
+     })
+    }
+    else{
     this.setState({
-      currentStep: 4
+      currentStep: 4,
+      requirederror:false,
+      invalidemail:false
     });
+  }
   }
 
   nextstep= () => {
     let currentStep = this.state.currentStep;
+    if(currentStep === 2 && this.state.skills.length ===0){
+      this.setState({
+       requirederror:true
+ });
+    }
+    else{
     currentStep = currentStep >= 2? 3: currentStep + 1;
     this.setState({
-      currentStep: currentStep
+      currentStep: currentStep,
+      requirederror:false
     });
+  }
   }
   
 
@@ -66,7 +91,7 @@ class App extends React.Component{
   return (
     <div class="maincontainer">
     <h1>Employee Details Form</h1>
-    <div class="steps">Step {this.state.currentStep} </div> 
+    {this.state.currentStep <=3 && <div class="steps">Step {this.state.currentStep} </div> }
       
     <form onSubmit={this.handleOnSubmit}>
     
@@ -75,19 +100,26 @@ class App extends React.Component{
         handleChange={this.handleOnChange}
         city={this.state.city}
       />
+
+
+
       <Contactform2
         currentStep={this.state.currentStep} 
         handleCheck={this.handleOnChecked}
         country={this.state.country}
-        
+        requirederror={this.state.requirederror}
       />
+       
       <Contactform3 
         currentStep={this.state.currentStep} 
         handleChange={this.handleOnChange}
         firstname={this.state.firstname}
         lastname={this.state.lastname}
         email={this.state.email}
+        requirederror={this.state.requirederror}
+        invalidemail={this.state.invalidemail}
       />       
+      
     <ResultScreen  {...this.state}/>
     </form>
     

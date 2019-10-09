@@ -8,6 +8,7 @@ class ResultScreen extends React.Component {
 
       return(
        <div class="successdetails">
+         <h6 class="success-message">Form submitted successfully!</h6>
         <b>First Name:</b> <div class="details">{this.props.firstname}</div>
         <b>Last Name:</b> <div class="details">{this.props.lastname}</div>
         <b>Email:</b> <div class="details">{this.props.email}</div>

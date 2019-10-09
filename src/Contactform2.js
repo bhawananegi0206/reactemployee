@@ -16,13 +16,14 @@ class Contactform2 extends React.Component{
           <div className="form-group">
             <label htmlFor="keyskills">Select your skills</label>
             <div id="toppings"> 
-                {this.state.skillsarr.map((value) => {
+                {this.state.skillsarr.map((value,index) => {
                     return  <div class="checkbox">
-                    <label><input type="checkbox" onChange={this.props.handleCheck} name={value} value={value} />{value}</label>
+                    <label><input type="checkbox" keys={index} onChange={this.props.handleCheck} name={value} value={value} />{value}</label>
                     </div>
                 })}
 
             </div>
+            {this.props.requirederror &&  <div class='error-message'>Please select atleast one skill</div>}
           </div>
         )
       }
